@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.12.0 on darwin)" generated="20231119 11:36:58.281" rpa="false" schemaversion="4">
+<suite id="s1" name="Adhoc Tests" source="/Users/kraiwitchpawadee/Personal/Software_Engineer/SW_Testing/project/CU_Bank/robottest_cu_bank/testProject/tests/adhoc_tests">
+<suite id="s1-s1" name="Adhoc Tests" source="/Users/kraiwitchpawadee/Personal/Software_Engineer/SW_Testing/project/CU_Bank/robottest_cu_bank/testProject/tests/adhoc_tests/adhoc_tests.robot">
+<kw name="Open Browser To Login Page" library="login" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231119 11:36:58.435" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/'.</msg>
+<status status="PASS" starttime="20231119 11:36:58.435" endtime="20231119 11:37:07.952"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231119 11:37:07.952" endtime="20231119 11:37:08.360"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20231119 11:37:08.361" endtime="20231119 11:37:08.361"/>
+</kw>
+<kw name="Login Page Should Be Open" library="login">
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${LOGIN_TITLE_LOCATOR}</arg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20231119 11:37:08.362" endtime="20231119 11:37:08.512"/>
+</kw>
+<status status="PASS" starttime="20231119 11:37:08.361" endtime="20231119 11:37:08.512"/>
+</kw>
+<status status="PASS" starttime="20231119 11:36:58.435" endtime="20231119 11:37:08.512"/>
+</kw>
+<test id="s1-s1-t1" name="Withdraw Exceed Max Value (max +)" line="39">
+<kw name="Login with" library="login">
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<kw name="Go To Login Page" library="login">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231119 11:37:08.514" level="INFO">Opening url 'http://localhost:3000/'</msg>
+<status status="PASS" starttime="20231119 11:37:08.513" endtime="20231119 11:37:08.962"/>
+</kw>
+<kw name="Login Page Should Be Open" library="login">
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<arg>${LOGIN_TITLE_LOCATOR}</arg>
+<arg>${LOGIN_TITLE}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" starttime="20231119 11:37:08.963" endtime="20231119 11:37:09.040"/>
+</kw>
+<status status="PASS" starttime="20231119 11:37:08.962" endtime="20231119 11:37:09.040"/>
+</kw>
+<status status="PASS" starttime="20231119 11:37:08.513" endtime="20231119 11:37:09.040"/>
+</kw>
+<kw name="Input Account Number" library="login">
+<arg>${username}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${ACCOUNT_NUMBER_LOCATOR}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231119 11:37:09.041" level="INFO">Typing text '1234567890' into text field '//input[@id='accountId']'.</msg>
+<status status="PASS" starttime="20231119 11:37:09.041" endtime="20231119 11:37:09.755"/>
+</kw>
+<status status="PASS" starttime="20231119 11:37:09.040" endtime="20231119 11:37:09.755"/>
+</kw>
+<kw name="Input Password" library="login">
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${PASSWORD_LOCATOR}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231119 11:37:09.755" level="INFO">Typing text '1234' into text field '//input[@id='password']'.</msg>
+<status status="PASS" starttime="20231119 11:37:09.755" endtime="20231119 11:37:10.005"/>
+</kw>
+<status status="PASS" starttime="20231119 11:37:09.755" endtime="20231119 11:37:10.005"/>
+</kw>
+<kw name="Submit Credentials" library="login">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${BUTTON_LOCATOR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231119 11:37:10.005" level="INFO">Clicking button '//div[@id='root']/div/div/div/form/button'.</msg>
+<status status="PASS" starttime="20231119 11:37:10.005" endtime="20231119 11:37:10.384"/>
+</kw>
+<status status="PASS" starttime="20231119 11:37:10.005" endtime="20231119 11:37:10.384"/>
+</kw>
+<status status="PASS" starttime="20231119 11:37:08.513" endtime="20231119 11:37:10.384"/>
+</kw>
+<kw name="Set Balance To Zero" library="account">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${BALANCE_LOCATOR}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20231119 11:37:10.416" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b2e40&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b/screenshot</msg>
+<msg timestamp="20231119 11:37:10.418" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b3950&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b/screenshot</msg>
+<msg timestamp="20231119 11:37:10.419" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b3b30&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b/screenshot</msg>
+<msg timestamp="20231119 11:37:10.419" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=64437): Max retries exceeded with url: /session/9ced0a7d8088058c7b451379c3f0632b/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b32f0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</msg>
+<status status="FAIL" starttime="20231119 11:37:10.384" endtime="20231119 11:37:10.419"/>
+</kw>
+<kw name="Get Balance" library="account">
+<var>${current_balance}</var>
+<status status="NOT RUN" starttime="20231119 11:37:10.419" endtime="20231119 11:37:10.419"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${current_balance} &gt; ${ZERO}</arg>
+<arg>withdraw</arg>
+<arg>${current_balance}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" starttime="20231119 11:37:10.420" endtime="20231119 11:37:10.420"/>
+</kw>
+<status status="FAIL" starttime="20231119 11:37:10.384" endtime="20231119 11:37:10.420"/>
+</kw>
+<kw name="Deposit" library="account">
+<arg>900719925474099267</arg>
+<status status="NOT RUN" starttime="20231119 11:37:10.420" endtime="20231119 11:37:10.420"/>
+</kw>
+<kw name="Withdraw" library="account">
+<arg>900719925474099315</arg>
+<status status="NOT RUN" starttime="20231119 11:37:10.420" endtime="20231119 11:37:10.420"/>
+</kw>
+<kw name="Balance Should Equal" library="account">
+<arg>0</arg>
+<status status="NOT RUN" starttime="20231119 11:37:10.420" endtime="20231119 11:37:10.420"/>
+</kw>
+<kw name="Logout" library="login">
+<status status="NOT RUN" starttime="20231119 11:37:10.420" endtime="20231119 11:37:10.420"/>
+</kw>
+<doc>Withdraw Exceed Max Value</doc>
+<tag>Withdraw</tag>
+<status status="FAIL" starttime="20231119 11:37:08.512" endtime="20231119 11:37:10.420">Execution terminated by signal</status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<msg timestamp="20231119 11:37:10.422" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7f0b60&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b</msg>
+<msg timestamp="20231119 11:37:10.422" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c3f4a10&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b</msg>
+<msg timestamp="20231119 11:37:10.423" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c3f4b00&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b</msg>
+<status status="PASS" starttime="20231119 11:37:10.421" endtime="20231119 11:37:10.489"/>
+</kw>
+<doc>A test suite containing adhoc tests for All function.</doc>
+<status status="FAIL" starttime="20231119 11:36:58.295" endtime="20231119 11:37:10.489"/>
+</suite>
+<status status="FAIL" starttime="20231119 11:36:58.282" endtime="20231119 11:37:10.490"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">Withdraw</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Adhoc Tests">Adhoc Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Adhoc Tests">Adhoc Tests.Adhoc Tests</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231119 11:37:10.416" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b2e40&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b/screenshot</msg>
+<msg timestamp="20231119 11:37:10.418" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b3950&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b/screenshot</msg>
+<msg timestamp="20231119 11:37:10.419" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b3b30&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b/screenshot</msg>
+<msg timestamp="20231119 11:37:10.419" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: HTTPConnectionPool(host='localhost', port=64437): Max retries exceeded with url: /session/9ced0a7d8088058c7b451379c3f0632b/screenshot (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7b32f0&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</msg>
+<msg timestamp="20231119 11:37:10.422" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c7f0b60&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b</msg>
+<msg timestamp="20231119 11:37:10.422" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c3f4a10&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b</msg>
+<msg timestamp="20231119 11:37:10.423" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x10c3f4b00&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /session/9ced0a7d8088058c7b451379c3f0632b</msg>
+</errors>
+</robot>
